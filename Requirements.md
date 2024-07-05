@@ -1,12 +1,36 @@
-graph TD
-    A[Customer calls to place order] --> B[Designer answers phone]
-    B --> C[Designer selects fragrances from spreadsheet]
-    C --> D[Designer writes order on paper]
-    D --> E[Designer adds order to spreadsheet]
-    E --> F[Production manager reviews spreadsheet]
-    F --> G[Production manager assigns order to artisan]
-    G --> H[Artisan looks up recipe for each fragrance]
-    H --> I[Artisan creates 3 unique candles]
-    I --> J[Artisan adds personalized inscriptions]
-    J --> K[Candles packaged in gift box]
-    K --> L[Order completed]
+Current Candle Gift Box Order Process
+=====================================
+
+1. Order Placement
+   |
+   ├─ Customer calls to place order
+   |
+   └─ Designer answers phone
+
+2. Order Creation
+   |
+   ├─ Designer selects fragrances from spreadsheet
+   |
+   ├─ Designer writes order on paper
+   |
+   └─ Designer adds order to spreadsheet
+
+3. Production Preparation
+   |
+   ├─ Production manager reviews spreadsheet
+   |
+   └─ Production manager assigns order to artisan
+
+4. Candle Production
+   |
+   ├─ Artisan looks up recipe for each fragrance
+   |
+   ├─ Artisan creates 3 unique candles
+   |
+   └─ Artisan adds personalized inscriptions
+
+5. Order Completion
+   |
+   ├─ Candles packaged in gift box
+   |
+   └─ Order completed
