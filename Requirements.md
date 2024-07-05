@@ -1,0 +1,12 @@
+graph TD
+    A[Customer calls to place order] --> B[Designer answers phone]
+    B --> C[Designer selects fragrances from spreadsheet]
+    C --> D[Designer writes order on paper]
+    D --> E[Designer adds order to spreadsheet]
+    E --> F[Production manager reviews spreadsheet]
+    F --> G[Production manager assigns order to artisan]
+    G --> H[Artisan looks up recipe for each fragrance]
+    H --> I[Artisan creates 3 unique candles]
+    I --> J[Artisan adds personalized inscriptions]
+    J --> K[Candles packaged in gift box]
+    K --> L[Order completed]
