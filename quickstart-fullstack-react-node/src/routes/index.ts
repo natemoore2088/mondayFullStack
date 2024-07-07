@@ -1,29 +1,15 @@
 import express from 'express';
+import fragranceRoutes from './fragranceRoutes';
+import healthRoutes from './healthRoutes';
+import { verifyApiKey } from '../middleware/apiKeyAuth';
+import { apiLimiter } from '../middleware/rateLimiter';
+
 const router = express.Router();
 
-// router.use(mondayRoutes);
+router.use(verifyApiKey); // Apply to all routes
+router.use(apiLimiter);
 
-// serve client app
-router.use(express.static('client/build'));
-
-router.get('/', function(req, res) {
-    res.json(getHealth());
-});
-
-router.get('/health', function(req, res) {
-  res.json(getHealth());
-  res.end();
-});
-
-router.get('/view', function(req, res) {
-    res.sendFile('index.html', { root: 'client/build/' });
-});
-
-function getHealth() {
-  return {
-    ok: true,
-    message: 'Healthy'
-  };
-}
+router.use('/fragrances', fragranceRoutes);
+router.use('/health', healthRoutes);
 
 export default router;
