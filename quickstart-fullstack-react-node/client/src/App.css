@@ -10,3 +10,12 @@ body {
   align-items: center;
   justify-content: center;
 }
+
+.tab-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff; /* Or whatever background color you prefer */
+  z-index: 1000;
+}

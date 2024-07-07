@@ -1,39 +1,22 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Dropdown } from 'monday-ui-react-core';
 
+const DropdownInput = ({ options, selectedOptions, onChange, loading, error }) => {
+    if (loading) return <div>Loading fragrances...</div>;
+    if (error) return <div>Error: {error}</div>;
 
-const DropdownInput = () => {
-    const options = useMemo(
-        () => [
-            {
-                value: "Rotem",
-                label: "Rotem Dekel",
-            },
-            {
-                value: "Hadas",
-                label: "Hadas Farhi",
-            },
-            {
-                value: "Netta",
-                label: "Netta Muller",
-            },
-            {
-                value: "Dor",
-                label: "Dor Yehuda",
-            },
-        ],
-        []
-    ); return (
+    return (
         <div>
             <Dropdown
-                placeholder="Single line multi state"
-                defaultValue={[options[0]]}
+                placeholder="Select fragrances"
                 options={options}
+                value={selectedOptions}
+                onChange={onChange}
                 multi
                 className="dropdown-stories-styles_with-chips"
             />
         </div>
-    )
-}
+    );
+};
 
 export default DropdownInput;

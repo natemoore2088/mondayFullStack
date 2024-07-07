@@ -1,38 +1,63 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import "./App.css";
-import mondaySdk from "monday-sdk-js";
 import "monday-ui-react-core/dist/main.css";
-//Explore more Monday React Components here: https://style.monday.com/
-import AttentionBox from "monday-ui-react-core/dist/AttentionBox.js";
+import { TabsContext, TabList, Tab, TabPanels, TabPanel } from "monday-ui-react-core";
 import CustomForm from "./components/CustomForm";
-// Usage of mondaySDK example, for more information visit here: https://developer.monday.com/apps/docs/introduction-to-the-sdk/
+import FragranceManager from "./components/FragranceManager";
+import useFragrances from "./hooks/useFragrances";
+import mondaySdk from "monday-sdk-js";
+
 const monday = mondaySdk();
 
 const App = () => {
+  const [activeTab, setActiveTab] = useState(0);
+  const { fragrances, loading, error, fetchFragrances, createFragrance, updateFragrance, deleteFragrance } = useFragrances();
   const [context, setContext] = useState();
 
   useEffect(() => {
-    // Notice this method notifies the monday platform that user gains a first value in an app.
-    // Read more about it here: https://developer.monday.com/apps/docs/mondayexecute#value-created-for-user/
-    monday.execute("valueCreatedForUser");
-
-    // TODO: set up event listeners, Here`s an example, read more here: https://developer.monday.com/apps/docs/mondaylisten/
     monday.listen("context", (res) => {
       setContext(res.data);
-      console.log(res.data);
     });
   }, []);
 
-  //Some example what you can do with context, read more here: https://developer.monday.com/apps/docs/mondayget#requesting-context-and-settings-data
-  const attentionBoxText = `Hello, your user_id is: ${
-    context ? context.user.id : "still loading"
-  }.
-  Let's start building your amazing app, which will change the world!`;
+  useEffect(() => {
+    fetchFragrances();
+  }, [fetchFragrances]);
 
+  const handleTabChange = useCallback((newTabIndex) => {
+    setActiveTab(newTabIndex);
+    fetchFragrances(); // Refresh data when changing tabs
+  }, [fetchFragrances]);
+  console.log(context)
   return (
     <div className="App">
-      <CustomForm> </CustomForm>
+      <TabsContext activeTabId={activeTab} onChange={handleTabChange}>
+        <TabList className="tab-header">
+          <Tab>Custom Form</Tab>
+          <Tab>Fragrance Manager</Tab>
+        </TabList>
+        <TabPanels>
+          <TabPanel>
+            <CustomForm 
+              fragrances={fragrances}
+              loading={loading}
+              error={error}
+            />
+          </TabPanel>
+          <TabPanel>
+            <FragranceManager 
+              fragrances={fragrances}
+              loading={loading}
+              error={error}
+              createFragrance={createFragrance}
+              updateFragrance={updateFragrance}
+              deleteFragrance={deleteFragrance}
+              refreshFragrances={fetchFragrances}
+            />
+          </TabPanel>
+        </TabPanels>
+
+      </TabsContext>
     </div>
   );
 };

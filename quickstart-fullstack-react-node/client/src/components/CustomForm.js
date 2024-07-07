@@ -1,16 +1,29 @@
 import React, { useState } from 'react';
-import { Flex, Button, Box } from 'monday-ui-react-core';
+import { Flex, Button } from 'monday-ui-react-core';
 import TextInput from './TextInput';
 import DropdownInput from './DropdownInput';
 
-const CustomForm = () => {
+const CustomForm = ({ fragrances, loading, error }) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [quantity, setQuantity] = useState(0);
+    const [selectedFragrances, setSelectedFragrances] = useState([]);
+
+    const handleFragranceChange = (selectedOptions) => {
+        setSelectedFragrances(selectedOptions);
+    };
 
     const handleSubmit = () => {
-        console.log(lastName, firstName, quantity);
-    }
+        console.log({
+            firstName,
+            lastName,
+            quantity,
+            selectedFragrances: selectedFragrances.map(option => option.label)
+        });
+    };
+
+    if (loading) return <div>Loading...</div>;
+    if (error) return <div>Error: {error}</div>;
 
     return (
         <div>
@@ -42,14 +55,18 @@ const CustomForm = () => {
                     />
                 </Flex>
                 <div style={{ width: "100%" }}>
-                    <DropdownInput />
+                    <DropdownInput 
+                        options={fragrances.map(f => ({ value: f._id, label: f.name }))}
+                        selectedOptions={selectedFragrances}
+                        onChange={handleFragranceChange}
+                    />
                 </div>
                 <div style={{ alignSelf: 'flex-start' }}>
                     <Button onClick={handleSubmit}>Submit</Button>
                 </div>
             </Flex>
         </div>
-    )
-}
+    );
+};
 
 export default CustomForm;
