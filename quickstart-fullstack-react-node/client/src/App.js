@@ -5,7 +5,7 @@ import mondaySdk from "monday-sdk-js";
 import "monday-ui-react-core/dist/main.css";
 //Explore more Monday React Components here: https://style.monday.com/
 import AttentionBox from "monday-ui-react-core/dist/AttentionBox.js";
-
+import CustomForm from "./components/CustomForm";
 // Usage of mondaySDK example, for more information visit here: https://developer.monday.com/apps/docs/introduction-to-the-sdk/
 const monday = mondaySdk();
 
@@ -20,6 +20,7 @@ const App = () => {
     // TODO: set up event listeners, Here`s an example, read more here: https://developer.monday.com/apps/docs/mondaylisten/
     monday.listen("context", (res) => {
       setContext(res.data);
+      console.log(res.data);
     });
   }, []);
 
@@ -31,11 +32,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <AttentionBox
-        title="Hello Monday Apps!"
-        text={attentionBoxText}
-        type="success"
-      />
+      <CustomForm> </CustomForm>
     </div>
   );
 };

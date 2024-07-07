@@ -3,6 +3,8 @@ import asyncHandler from 'express-async-handler';
 import Fragrance, { IFragrance } from '../models/Fragrance';
 
 export const getAllFragrances = asyncHandler(async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+
+    // Pagination and sorting
     const page = parseInt(req.query.page as string) || 1;
     const limit = parseInt(req.query.limit as string) || 20;
     const sort = req.query.sort as string || 'name';
@@ -72,7 +74,7 @@ export const updateFragrance = asyncHandler(async (req: Request, res: Response, 
         res.status(400).json({ message: 'Fragrance ID is required' });
         return;
     }
-
+    // Check for duplicate fragrance names
     if (updateData.name) {
         const duplicate = await Fragrance.findOne({ name: updateData.name, _id: { $ne: id } })
             .collation({ locale: 'en', strength: 2 })

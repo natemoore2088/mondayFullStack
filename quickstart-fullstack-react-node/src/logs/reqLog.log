@@ -24,3 +24,11 @@
 20240706	17:54:07	753ab520-1bfb-40ab-85f7-764ea3cc32cc	PATCH	/api/fragrances/6689cbf4eaf9aea31eeb52d2	undefined
 20240706	17:54:33	a5f5749d-496f-48fc-851e-c7e467a9190d	PATCH	/api/fragrances/6689cbf4eaf9aea31eeb52d2	undefined
 20240706	17:57:12	961a1209-967a-4239-ad36-487b7233e4de	PATCH	/api/fragrances/6689cbf4eaf9aea31eeb52d2	undefined
+20240707	11:29:52	3efc2193-ccca-4d69-8bf9-05b64766626d	GET	/api/fragrances/	undefined
+20240707	11:31:08	f389b908-224b-4c82-9907-522712fe4c6b	POST	/api/fragrances/	undefined
+20240707	11:31:17	3f0cb029-8edc-4b7e-911d-ac3ed45fdbc7	GET	/api/fragrances/	undefined
+20240707	11:31:33	7d46f642-20df-42da-a054-27e70ad0e540	GET	/api/fragrances/668ad0dc2f60a93efb988370	undefined
+20240707	11:31:49	aa004cac-d054-43fc-b333-82f1422ea01e	PATCH	/api/fragrances/668ad0dc2f60a93efb988370	undefined
+20240707	11:32:02	ff7dc14c-4033-4666-ab8e-60f1b3c13d96	DELETE	/api/fragrances/668ad0dc2f60a93efb988370	undefined
+20240707	11:32:09	18411ff2-1cfe-488c-8814-f5d838aad0ef	GET	/api/fragrances/668ad0dc2f60a93efb988370	undefined
+20240707	11:32:14	6e3e75fe-6dc1-4e58-b51a-453e7a6bc66d	GET	/api/fragrances	undefined
