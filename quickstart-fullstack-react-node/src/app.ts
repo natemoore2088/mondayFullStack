@@ -14,7 +14,7 @@ import { logEvents } from './middleware/logger';
 dotenv.config();
 
 const app: Express = express();
-const PORT: string | number = process.env.PORT || 3500;
+const PORT: string | number = process.env.PORT || 8080;
 
 console.log(process.env.NODE_ENV);
 console.log(process.env.API_KEY)
