@@ -48,7 +48,8 @@ const FragranceManager = ({ fragrances, loading, error, createFragrance, updateF
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div>
+        <div style={{height:"75vh"
+        }}>
             <h2>Fragrance Manager</h2>
             <Flex gap={Flex.gaps.SMALL} direction={Flex.directions.COLUMN}>
             <TextField value={name} onChange={setName} placeholder="Name" />
@@ -80,7 +81,6 @@ const FragranceManager = ({ fragrances, loading, error, createFragrance, updateF
                         }}>
                             <TableRow
                                 key={fragrance._id}
-
                             >
                                 <TableCell>{fragrance.name}</TableCell>
                                 <TableCell>{fragrance.description}</TableCell>

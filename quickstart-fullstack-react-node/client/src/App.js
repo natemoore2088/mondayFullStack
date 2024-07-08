@@ -13,10 +13,13 @@ const App = () => {
   const [activeTab, setActiveTab] = useState(0);
   const { fragrances, loading, error, fetchFragrances, createFragrance, updateFragrance, deleteFragrance } = useFragrances();
   const [context, setContext] = useState();
+  const MONDAY_API_KEY=process.env.REACT_APP_MONDAY_TOKEN;
 
   useEffect(() => {
+    // monday.setToken(MONDAY_API_KEY)
     monday.listen("context", (res) => {
       setContext(res.data);
+      console.log(res.data);
     });
   }, []);
 

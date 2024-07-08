@@ -20,7 +20,7 @@ const useFragrances = () => {
       if (!response.ok) throw new Error('Failed to fetch fragrances');
       const data = await response.json();
       console.log(data);
-      setFragrances([...data.fragrances]); // Create a new array
+      setFragrances([...data.fragrances]); 
     } catch (err) {
       console.log(err.message);
       setError(err.message);
@@ -44,7 +44,7 @@ const useFragrances = () => {
       if (!response.ok) throw new Error('Failed to create fragrance');
       const newFragrance = await response.json();
 
-      setFragrances(prev => [...prev, newFragrance.fragrance]); // Already creating a new array
+      setFragrances(prev => [...prev, newFragrance.fragrance]); 
     } catch (err) {
       setError(err.message);
     } finally {
@@ -66,7 +66,7 @@ const useFragrances = () => {
       });
       if (!response.ok) throw new Error('Failed to update fragrance');
       const updatedFragrance = await response.json();
-      setFragrances(prev => prev.map(f => f._id === id ? {...updatedFragrance.fragrance} : {...f})); // Create new objects for each fragrance
+      setFragrances(prev => prev.map(f => f._id === id ? {...updatedFragrance.fragrance} : {...f})); 
     } catch (err) {
       setError(err.message);
     } finally {
@@ -85,7 +85,7 @@ const useFragrances = () => {
         },
       });
       if (!response.ok) throw new Error('Failed to delete fragrance');
-      setFragrances(prev => prev.filter(f => f._id !== id).map(f => ({...f}))); // Create new objects for each remaining fragrance
+      setFragrances(prev => prev.filter(f => f._id !== id).map(f => ({...f})));
     } catch (err) {
       setError(err.message);
     } finally {
