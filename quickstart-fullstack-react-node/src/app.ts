@@ -23,17 +23,14 @@ app.use(logger);
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
-// Determine the correct path to your static files and index.html
 let staticPath = path.join(__dirname, '../client/build');
 let indexPath = path.join(staticPath, 'index.html');
 
-// If the above path doesn't exist, try an alternative
 if (!fs.existsSync(indexPath)) {
   staticPath = path.join(__dirname, 'client/build');
   indexPath = path.join(staticPath, 'index.html');
 }
 
-// If we still can't find it, log an error
 if (!fs.existsSync(indexPath)) {
   console.error('Cannot find index.html. Please check your build process and file locations.');
 }
