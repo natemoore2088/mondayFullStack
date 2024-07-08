@@ -1,2 +1,4 @@
 .env.production
 .mappsrc
+package-lock.json
+node_modules
