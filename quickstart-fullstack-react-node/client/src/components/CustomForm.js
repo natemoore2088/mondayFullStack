@@ -3,7 +3,7 @@ import { Flex, Button, Toast } from 'monday-ui-react-core';
 import TextInput from './TextInput';
 import DropdownInput from './DropdownInput';
 import useMondayService from '../hooks/useMondayService';
-import { MondayContext } from '../context/MondayContext'; // We'll create this context to store boardId
+import { MondayContext } from '../context/MondayContext'; 
 
 const CustomForm = ({ fragrances, loading, error }) => {
     const [firstName, setFirstName] = useState('');
@@ -36,6 +36,8 @@ const CustomForm = ({ fragrances, loading, error }) => {
             setShowToast(true);
             return;
         }
+
+        //column values from mondayAPI. TODO dynamically assign these from monday query (would lift state into useMondayService hook or create a context)
         const columnValues = {
             text: firstName,
             text6: lastName,

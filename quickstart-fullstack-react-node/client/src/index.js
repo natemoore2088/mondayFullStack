@@ -13,7 +13,7 @@ root.render(
     <React.StrictMode>
         <MondayProvider>
             <App />
-        </MondayProvider>ß
+        </MondayProvider>
     </React.StrictMode>
 );
 

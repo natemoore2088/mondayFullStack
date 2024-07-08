@@ -32,6 +32,7 @@ const App = () => {
     fetchFragrances(); // Refresh data when changing tabs
   }, [fetchFragrances]);
   console.log(context)
+  
   return (
     <div className="App">
       <TabsContext activeTabId={activeTab} onChange={handleTabChange}>
