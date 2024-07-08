@@ -12,7 +12,7 @@ const useFragrances = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${API_URL}/api/fragrances?page=${page}&limit=${limit}`, {
+      const response = await fetch(`${API_URL}/fragrances?page=${page}&limit=${limit}`, {
         headers: {
           'X-API-KEY': API_KEY,
         },
@@ -33,7 +33,7 @@ const useFragrances = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${API_URL}/api/fragrances`, {
+      const response = await fetch(`${API_URL}/fragrances`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ const useFragrances = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${API_URL}/api/fragrances/${id}`, {
+      const response = await fetch(`${API_URL}/fragrances/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ const useFragrances = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch(`${API_URL}/api/fragrances/${id}`, {
+      const response = await fetch(`${API_URL}/fragrances/${id}`, {
         method: 'DELETE',
         headers: {
           'X-API-KEY': API_KEY,

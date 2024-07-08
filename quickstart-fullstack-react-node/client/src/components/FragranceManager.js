@@ -48,20 +48,21 @@ const FragranceManager = ({ fragrances, loading, error, createFragrance, updateF
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div style={{height:"75vh"
+        <div style={{
+            height: "75vh"
         }}>
             <h2>Fragrance Manager</h2>
             <Flex gap={Flex.gaps.SMALL} direction={Flex.directions.COLUMN}>
-            <TextField value={name} onChange={setName} placeholder="Name" />
-            <TextField value={description} onChange={setDescription} placeholder="Description" />
-            <TextField value={category} onChange={setCategory} placeholder="Category" />
-            <TextField value={imageUrl} onChange={setImageUrl} placeholder="Image URL" />
-            <Flex justify={Flex.justify.START} gap={Flex.gaps.MEDIUM}>
-            <Button onClick={handleCreate}>Create</Button>
-            <Button onClick={handleUpdate} disabled={!selectedFragrance}>Update</Button>
-            <Button onClick={handleDelete} disabled={!selectedFragrance}>Delete</Button>
-            <Button onClick={refreshFragrances}>Refresh</Button>
-            </Flex>
+                <TextField value={name} onChange={setName} placeholder="Name" />
+                <TextField value={description} onChange={setDescription} placeholder="Description" />
+                <TextField value={category} onChange={setCategory} placeholder="Category" />
+                <TextField value={imageUrl} onChange={setImageUrl} placeholder="Image URL" />
+                <Flex justify={Flex.justify.START} gap={Flex.gaps.MEDIUM}>
+                    <Button onClick={handleCreate}>Create</Button>
+                    <Button onClick={handleUpdate} disabled={!selectedFragrance}>Update</Button>
+                    <Button onClick={handleDelete} disabled={!selectedFragrance}>Delete</Button>
+                    <Button onClick={refreshFragrances}>Refresh</Button>
+                </Flex>
             </Flex>
             <h3>Fragrances</h3>
             <Table columns={columns}>

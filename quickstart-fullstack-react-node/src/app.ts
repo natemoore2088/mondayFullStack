@@ -4,36 +4,52 @@ import bodyParser from 'body-parser';
 import routes from './routes';
 import { logger } from './middleware/logger';
 import errorHandler from './middleware/errorHandler';
-// import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import corsOptions from './config/corsOptions';
 import connectDB from './config/dbConn';
 import mongoose from 'mongoose';
 import { logEvents } from './middleware/logger';
+import path from 'path';
+import fs from 'fs';
 
 dotenv.config();
 
 const app: Express = express();
 const PORT: string | number = process.env.PORT || 8080;
 
-console.log(process.env.NODE_ENV);
-console.log(process.env.API_KEY)
-
 connectDB();
 
 app.use(logger);
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
+
+// Determine the correct path to your static files and index.html
+let staticPath = path.join(__dirname, '../client/build');
+let indexPath = path.join(staticPath, 'index.html');
+
+// If the above path doesn't exist, try an alternative
+if (!fs.existsSync(indexPath)) {
+  staticPath = path.join(__dirname, 'client/build');
+  indexPath = path.join(staticPath, 'index.html');
+}
+
+// If we still can't find it, log an error
+if (!fs.existsSync(indexPath)) {
+  console.error('Cannot find index.html. Please check your build process and file locations.');
+}
+
+// Serve static files
+app.use(express.static(staticPath));
+
+// API routes
 app.use('/api', routes);
 
-app.use(express.static('client/build'));
-
+// For any other route, serve index.html
 app.get('*', (req: Request, res: Response) => {
-  res.sendFile('index.html', { root: 'client/build/' });
+  res.sendFile(indexPath);
 });
 
-app.use(errorHandler)
-
+app.use(errorHandler);
 
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB')

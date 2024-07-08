@@ -20,7 +20,7 @@ export const getAllFragrances = asyncHandler(async (req: Request, res: Response,
     const count = await Fragrance.countDocuments();
     
     if (!fragrances.length) {
-        res.status(404).json({ message: 'No fragrances found' });
+        res.status(200).json({ message: 'No fragrances found' });
         return;
     }
     
@@ -37,7 +37,7 @@ export const getFragranceById = asyncHandler(async (req: Request, res: Response,
     const fragrance = await Fragrance.findById(id).lean();
     
     if (!fragrance) {
-        res.status(404).json({ message: 'Fragrance not found' });
+        res.status(200).json({ message: 'Fragrance not found' });
         return;
     }
     
@@ -92,7 +92,7 @@ export const updateFragrance = asyncHandler(async (req: Request, res: Response, 
     );
 
     if (!updatedFragrance) {
-        res.status(404).json({ message: 'Fragrance not found' });
+        res.status(200).json({ message: 'Fragrance not found' });
         return;
     }
 
@@ -110,7 +110,7 @@ export const deleteFragrance = asyncHandler(async (req: Request, res: Response, 
     const result = await Fragrance.findByIdAndDelete(id);
 
     if (!result) {
-        res.status(404).json({ message: 'Fragrance not found' });
+        res.status(200).json({ message: 'Fragrance not found' });
         return;
     }
 
