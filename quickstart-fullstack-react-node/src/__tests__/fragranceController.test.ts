@@ -2,6 +2,7 @@ import request from 'supertest';
 import express, { Application, Request, Response, NextFunction } from 'express';
 import { getAllFragrances, getFragranceById, createNewFragrance, updateFragrance, deleteFragrance } from '../controllers/fragranceController';
 import Fragrance from '../models/Fragrance';
+import errorHandler from '../middleware/errorHandler'
 
 jest.mock('../models/Fragrance');
 
@@ -15,10 +16,7 @@ app.patch('/fragrances/:id', updateFragrance);
 app.delete('/fragrances/:id', deleteFragrance);
 
 // Error handling middleware
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  console.error(err.stack);
-  res.status(500).json({ error: 'Something went wrong!' });
-});
+app.use((errorHandler));
 
 describe('Fragrance Controller Tests', () => {
   beforeEach(() => {
