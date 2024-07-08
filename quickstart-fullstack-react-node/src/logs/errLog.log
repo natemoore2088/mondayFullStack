@@ -1,1 +1,4 @@
 20240706	16:58:30	4f2440d8-b1af-4550-9a74-60e4563d7abe	SyntaxError: Expected double-quoted property name in JSON at position 28	PATCH	/api/fragrances/6689cb8deaf9aea31eeb52ca	undefined
+20240707	14:40:27	47d9409e-f62a-464f-8507-c2198882592e	Error: Not allowed by CORS	OPTIONS	/api/fragrances	http://localhost:8301
+20240707	14:40:34	1ae4c790-aa6f-439a-a973-78358d52c97e	Error: Not allowed by CORS	OPTIONS	/api/fragrances	http://localhost:8301
+20240707	14:40:34	e21195ca-f8b5-44c6-8e71-b10c08847513	Error: Not allowed by CORS	OPTIONS	/api/fragrances	http://localhost:8301

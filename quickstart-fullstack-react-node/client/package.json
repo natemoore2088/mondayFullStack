@@ -10,8 +10,9 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@types/node": "^20.14.10",
     "monday-sdk-js": "^0.5.0",
-    "monday-ui-react-core": "^1.134.1",
+    "monday-ui-react-core": "^2.118.1",
     "monday-ui-style": "^0.8.0",
     "react-router-dom": "^6.24.1"
   },
