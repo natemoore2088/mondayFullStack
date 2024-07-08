@@ -16,7 +16,7 @@ npm install
 ```
 
 ## Configure your Monday App
-
+See .env.example for example keys
 ## Run the project
 
 1. Create a free mongoDB database/cluster and add the uri to .env as DATABASE_URI
@@ -47,7 +47,7 @@ npm run dev
 
 I have deployed the app to a production build which can be found here:
 
-https://cd826-service-24294254-f6d3d8eb.us.monday.app
+https://ebc89-service-24294254-f6d3d8eb.us.monday.app
 
 To deploy your own follow the steps above then:
 1.  Set your environment variables in the Monday Code feature UI for DATABASE_URI, your generated API_KEY for the fragrances backend, and PORT.
