@@ -20,7 +20,7 @@ User Stories
 
 Order Taker
 
-1. Record client First Name, Last Name, Shipping Address, Email, Phone Number
+1. Record client First Name, Last Name
 2. Select client fragrances from dropdown (with active search)
 3. Record client personalized Inscription
 4. Record number of gift boxes desired
